@@ -1,2 +1,2 @@
 # mycode
-Python Code repo
+My code for Python training
