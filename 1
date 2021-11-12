@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+"""Space Details | Author: Hiraman Sonawane
+
+   Description:
+   A script to interact with an "open" api, 
+   http://api.open-notify.org/iss-now.json
+
+   Documentation fr the API is available via,
+   http://open-notify.org/Open-Notify-API/ISS-Location-Now/"""
+
+import requests
+
+# Base API String
+API = "http://api.open-notify.org/iss-now.json"
+LOCATION_MSG = "CURRENT LOCATION OF THE ISS:"
+
+def display_iss_location_detasils(iss_position):
+    print(LOCATION_MSG)
+    print(f"   Lon: {iss_position['longitude']}")
+    print(f"   Lat: {iss_position['latitude']}")
+
+def main():
+    """Executes Core code to fetch ISS details"""
+
+    # Create a response
+    iss_response = requests.get(API)
+
+    # Display the Location 
+    display_iss_location_detasils(iss_response.json()['iss_position'])
+
+if __name__ == "__main__":
+     main()
